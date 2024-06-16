@@ -12,18 +12,24 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header class="header">
+        <header >
             <h1>Hangman</h1>
+            <span id="score">Score: 0</span>
         </header>
 
-        <main>
+        <section id="user-name-input">
             <div class="container">
                 <h1 id="user-header">Welcome to Hangman!</h1>
                 <p id="user-info">Input your name below to continue.</p>
-                <input type="text" id="user-name" value="Bookworm">
-                <input type="submit" id="submit-button">
+                <input data-type="text" id="user-name" value="Bookworm">
+                <button data-type="submit" id="submit-button">Submit</button>
             </div>
-        </main>
+        </section>
+        <section id="game-screen" class="hidden">
+            <div class="container">
+                <img src="/assets/images/apfel.jpg" alt="0/6 Guesses remaining">
+            </div>
+        </section>
 
         <footer class="footer">
             <p><i class="fa-regular fa-copyright"></i> Charles Cornfield circa 2024. All rights reserved.</p>
@@ -31,6 +37,7 @@
 
         <script src="https://kit.fontawesome.com/7c55d90f25.js" crossorigin="anonymous"></script>
         <script src="assets/js/jquery-3.7.1.min.js" async defer></script>
+        <script src="assets/js/dictionary.js" async defer></script>
         <script src="assets/js/script.js" async defer></script>
     </body>
 </html>

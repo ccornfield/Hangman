@@ -21,22 +21,32 @@ p, h1 {
 
 header {
     border-bottom: 3px solid black;
-    background-color: cadetblue;
+    background-color: #5f9ea0;
     padding: 10px;
     margin-inline: 0 auto;
     width:100%;
 }
 
+#score{
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+}
+
 footer {
     text-align: center;
     border-top: 3px solid black;
-    background-color: cadetblue;
+    background-color: #5f9ea0;
     margin-top: 20px;
     padding: 10px;
     position: absolute;
     bottom: 0;
     left: 0;
     width:100%
+}
+
+.hidden{
+    opacity: 0;
 }
 
 /*Userpage*/
@@ -82,4 +92,8 @@ footer {
     margin-inline: auto;
     margin: 15px 0;
     font-weight: bold;
+}
+
+#submit-button:hover{
+    color: #cdaca1;
 }
