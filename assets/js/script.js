@@ -3,7 +3,7 @@ let username = ''
 let game = {
     dictionary: ["Bramble"],
     currentWord: [],
-    guesses: [],
+    guesses: 0,
     score: 0
 }
 
@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "submit") {
-                collectUsername();
+                username = collectUsername();
                 console.log(`Get ready to play ${username}!`);
+                runGame();
             }
         });
     }
@@ -25,15 +26,12 @@ document.addEventListener("DOMContentLoaded", function() {
  * can be used to tell the play whether they've won or lost in the game of hangman.
  */
 function collectUsername(){
-   const userInput = document.getElementById("user-name");
-    username = userInput.value;
+    const userInput = document.getElementById("user-name");
+    return userInput.value;
 }
 
 function runGame(){
-    //currentWord = words[Math.floor(Math.random() * 1175)];
-    currentWord = dictionary
-    
-
+    console.log("Running the game...")
 }
 
 function checkLetter(){
