@@ -4,7 +4,8 @@ let game = {
     dictionary: ["Bramble"],
     currentWord: [],
     guesses: 0,
-    score: 0
+    score: 0,
+    guesses: 0
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -32,10 +33,22 @@ function collectUsername(){
 
 function runGame(){
     console.log("Running the game...")
+    //dictionary = words[Math.floor(Math.random() * 1175)];
+    //document.getElementById("user-header").innerText = `<img src="/assets/images/apfel.jpg" alt="0/6 Guesses remaining">`;
+    //document.getElementById("user-info").innerText = `<div id="current-word">_ _ _ _ _ _ _</div>`;
+
 }
 
 function checkLetter(){
-
+    //let letterSuggestion = document.getElementById("user-name").value
+    for (let letters of currentWord) {
+        if (letters = letterSuggestion){
+            updateHiddenWord()
+        } else {
+            updateHangmanImage()
+            document.getElementById("score").innerText = ++oldScore;
+        }
+    }
 }
 
 function compareCorrectLetter(){
@@ -43,13 +56,14 @@ function compareCorrectLetter(){
 }
 
 function incrementScore(){
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
+}
+
+function updateHiddenWord(){
 
 }
 
-function displayHiddenWord(){
-
-}
-
-function displayHangmanImage(){
+function updateHangmanImage(){
 
 }
