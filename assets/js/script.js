@@ -6,21 +6,21 @@ let game = {
     hiddenWord: [],
     guesses: 0,
     score: 0,
+    gameStart: 0
 }
 
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
-    let gameStart = 0
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
-            if (this.getAttribute("type") === "submit") {
+            if (this.getAttribute("type") === "submit" && game["gameStart"] == 0) {
                 //collectUsername();
                 console.log(`Get ready to play ${username}!`);
                 console.log(`the word for this game is ${game["dictionary"]}`)
-                ++gameStart
+                ++game["gameStart"]
                 runGame();
-            } else if (gameStart === 1) {
+            } else {
                 checkLetter()
             }
         });
@@ -48,17 +48,21 @@ function runGame(){
     console.log("Running the game...")
     currentWord = game["dictionary"]
     //currentWord = words[Math.floor(Math.random() * 1175)];
-    gameScreenEle = `<img id="game-screen" src="assets/images/apfel.jpg" alt="0/6 Guesses remaining">`
-    currentWordEle = `<div id="current-word"></div>`
-    document.getElementById("score").innerHTML = "Score: 0"
-    document.getElementById("user-header").outerHTML = gameScreenEle;
-    document.getElementById("user-info").outerHTML = currentWordEle;
-    document.getElementsByName
 
-        if (currentWord !== null){
-            let word = currentWord[0]
-            hiddenWord = ' _ '.repeat(word.length)
-            document.getElementById('current-word').innerHTML = hiddenWord
+    if (game["gameStart"] >= 1) {
+        gameScreenEle = `<img id="game-screen" src="assets/images/apfel.jpg" alt="0/6 Guesses remaining">`
+        currentWordEle = `<div id="current-word"></div>`
+        document.getElementById("score").innerHTML = "Score: 0"
+        document.getElementById("user-header").outerHTML = gameScreenEle;
+        document.getElementById("user-info").outerHTML = currentWordEle;
+    } else {
+        //This is empty to ensure that the script does not try to generate the html elements again.
+    }
+
+    if (currentWord !== null){
+        let word = currentWord[0]
+        hiddenWord = ' _ '.repeat(word.length)
+        document.getElementById('current-word').innerHTML = hiddenWord
         } else {
             console.error("An invalid word has been chosen!")
             throw `Invalid hangman word chosen: ${currentWord}. Aborting!`;
@@ -68,7 +72,7 @@ function runGame(){
 
 function checkLetter(){
     let letterSuggestion = document.getElementById("letter-input").value
-    console.log(letterSuggestion)
+    return console.log(letterSuggestion)
     }
 
 
