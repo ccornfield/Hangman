@@ -5,19 +5,23 @@ let game = {
     currentWord: [],
     hiddenWord: [],
     guesses: 0,
-    score: 0
+    score: 0,
 }
 
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
+    let gameStart = 0
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("type") === "submit") {
                 //collectUsername();
                 console.log(`Get ready to play ${username}!`);
-                runGame();
                 console.log(`the word for this game is ${game["dictionary"]}`)
+                ++gameStart
+                runGame();
+            } else if (gameStart === 1) {
+                checkLetter()
             }
         });
     }
@@ -63,20 +67,12 @@ function runGame(){
 
 
 function checkLetter(){
-    //let letterSuggestion = document.getElementById("letter-input").value
-    for (let letters of currentWord) {
-        if (letters = letterSuggestion){
-            updateHiddenWord()
-        } else {
-            updateHangmanImage()
-            document.getElementById("score").innerText = ++oldScore;
-        }
+    let letterSuggestion = document.getElementById("letter-input").value
+    console.log(letterSuggestion)
     }
-}
 
-function compareCorrectLetter(){
 
-}
+//function compareCorrectLetter(){}
 
 function incrementScore(){
     let oldScore = parseInt(document.getElementById("score").innerText);
