@@ -62,8 +62,8 @@ footer {
 #user-name, #letter-input{
     border: 2px solid black;
     position: relative;
-    margin-inline: auto;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     width: 10em;
     height: 2em;
 }
