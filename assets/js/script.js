@@ -2,8 +2,8 @@
 let username = 'Adam'
 let game = {
     dictionary: ["bramble"],
-    currentWord: [],
-    hiddenWord: [],
+    currentWord: '',
+    hiddenWord: '',
     guesses: 0,
     score: 0,
     gameStart: 0
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log(`the word for this game is ${game["dictionary"]}`)
                 ++game["gameStart"]
                 runGame();
-            } else {
+            } else if (this.getAttribute("type") === "submit" && game["gameStart"] >= 1) {
                 checkLetter()
             }
         });
@@ -50,7 +50,7 @@ function runGame(){
     //currentWord = words[Math.floor(Math.random() * 1175)];
 
     if (game["gameStart"] >= 1) {
-        gameScreenEle = `<img id="game-screen" src="assets/images/apfel.jpg" alt="0/6 Guesses remaining">`
+        gameScreenEle = `<img id="game-screen" src="assets/images/0-guesses.jpg" alt="0/6 Guesses remaining">`
         currentWordEle = `<div id="current-word"></div>`
         document.getElementById("score").innerHTML = "Score: 0"
         document.getElementById("user-header").outerHTML = gameScreenEle;
@@ -69,11 +69,35 @@ function runGame(){
         }
     }
 
-
+/***
+ * The check letter function is designed to allow for the program to decide whether or not the letter provided by the user is equal to any of the 
+ */
 function checkLetter(){
-    let letterSuggestion = document.getElementById("letter-input").value
-    return console.log(letterSuggestion)
+    //game.currentWord[0].split('')
+    let correctWord = 0
+    let incorrectWord = 0
+    let letterSuggestion = 'k'
+    let wordArray = ['b', 'r', 'a', 'm', 'b', 'l', 'e'];
+
+    for (let letters of wordArray) {
+        if (letterSuggestion === letters){
+            console.log("This is the correct letter!")
+            ++correctWord
+        } else if (correctWord == 0) {
+            console.log("This is the incorrect letter!")
+            ++incorrectWord
+            if(incorrectWord == 7){
+                console.log("None of these letters are correct!")
+                ++game.guesses
+                updateHangmanImage()
+            }
+        }
+    
+    if (correctWord !== 0) {
+        //updateHiddenWord()
     }
+    }
+}
 
 
 //function compareCorrectLetter(){}
@@ -88,5 +112,5 @@ function updateHiddenWord(){
 }
 
 function updateHangmanImage(){
-
+    console.log(game.guesses)
 }
