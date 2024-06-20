@@ -1,5 +1,5 @@
 
-let username = 'User'
+let username = ''
 let game = {
     dictionary: words,
     currentWord: 'example',
@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function() {
             if (this.getAttribute("type") === "submit" && game["gameStart"] == 0) {
                 collectUsername();
                 alert(`Get ready to play ${username}!`);
-                console.log(`the word for this game is ${game["currentWord"]}`)
-                ++game["gameStart"]
-                changeHTMLForGameplay()
+                console.log(`the word for this game is ${game["currentWord"]}`);
+                ++game["gameStart"];
+                changeHTMLForGameplay();
                 runGame();
             } else if (this.getAttribute("type") === "submit" && game["gameStart"] >= 1) {
-                checkLetter()
+                checkLetter();
             }
         });
     }
@@ -42,6 +42,10 @@ function collectUsername(){
         console.error("Please insert a valid username!")
         throw `Invalid User Input ${userInput}. Aborting!`;
     }
+
+    //if (userInput.value.length == 0){
+        //alert('Please insert a username!')
+    //}
 }
 
 function changeHTMLForGameplay(){
