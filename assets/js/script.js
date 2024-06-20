@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("type") === "submit" && game["gameStart"] == 0) {
-
                 collectUsername();
                 alert(`Get ready to play ${username}!`);
                 console.log(`the word for this game is ${game["currentWord"]}`);
