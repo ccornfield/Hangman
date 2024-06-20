@@ -1,14 +1,14 @@
 
-let username = ''
+let username = 'User'
 let game = {
     dictionary: words,
-    currentWord: '',
+    currentWord: 'example',
     hiddenWord: '',
-    guessedWords: [],
     guesses: 0,
     score: 0,
     gameStart: 0
 }
+let newHiddenWord = []
 
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
@@ -48,7 +48,7 @@ function changeHTMLForGameplay(){
 
         gameScreenEle = `<img id="game-screen" src="assets/images/0-guesses.jpg" alt="0/6 Guesses remaining">`
         currentWordEle = `<div id="current-word"></div>`
-        document.getElementById("score").innerHTML = "Score: 0"
+        document.getElementById("scoreboard").innerHTML = `Score:<span id="score">0</span>`
         document.getElementById("user-header").outerHTML = gameScreenEle;
         document.getElementById("user-info").outerHTML = currentWordEle;
 
@@ -59,20 +59,17 @@ function changeHTMLForGameplay(){
  * such as the current word the game is using and the _ lines beneath the hangman image showing the current player guesses and their progress in the game.
  */
 function runGame(){
+    newHiddenWord = []
     game.guesses = 0;
     document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/0-guesses.jpg" alt="0/6 Guesses remaining"></img>`;
     console.log("Running the game...");
     currentWord = words[Math.floor(Math.random() * 1175)];
     alert(currentWord);
-    //currentWord = words[Math.floor(Math.random() * 1175)];
 
     if (currentWord !== null){
-        let spaces = ' _ '
-        game.hiddenWord = spaces.repeat(currentWord.length);
-        //game.hiddenWord = ' _ ' * word.length;
-        document.getElementById('current-word').innerHTML = game.hiddenWord;
+        initializeHiddenWord()
         } else {
-            console.error("An invalid word has been chosen!")
+            console.error("An invalid word has been chosen!");
             throw `Invalid hangman word chosen: ${currentWord}. Aborting!`;
         }
     }
@@ -81,52 +78,64 @@ function runGame(){
  * The check letter function is designed to allow for the program to decide whether or not the letter provided by the user is equal to any of the 
  */
 function checkLetter(){
-    //game.currentWord[0].split('') This is to divide up the currentWord into individual letters that can be searched through with a for loop.
-    let correctWord = 0
-    let incorrectWord = 0
-    let letterSuggestion = document.getElementById("user-name").value
-    let wordArray = game.currentWord[0].split('');
-
-    //for (let guess in game.guessedWords){
-        //if (letterSuggestion == guess){
-            //alert("You have already used this word!")
-        //}
-    //}
+    let correctWord = 0;
+    let incorrectWord = 0;
+    let letterSuggestion = document.getElementById("user-name").value;
+    let wordArray = currentWord.split('');
+    console.log(currentWord)
 
     for (let letters of wordArray) {
         if (letterSuggestion === letters){
             console.log("This is the correct letter!")
             ++correctWord
+            updateHiddenWord()
         } else if (correctWord == 0) {
             console.log("This is the incorrect letter!")
             ++incorrectWord
-            if(incorrectWord == 7){
+            if(incorrectWord == currentWord.length){
                 console.log("None of these letters are correct!")
                 ++game.guesses
                 updateHangmanImage()
             }
         }
-
-    if (correctWord !== 0) {
-        game.guessedWords.push(letterSuggestion)
-        //updateHiddenWord()
-    }
+        doesPlayerwin()
     }
 }
 
-
-//function compareCorrectLetter(){}
+/***
+ * This function is for the sole purpose of increasing and decreasing the score displayed in the header whenever the user wins a game of hangman.
+ */
 
 function incrementScore(){
     let oldScore = parseInt(document.getElementById("score").innerText);
     document.getElementById("score").innerText = ++oldScore;
 }
 
+function initializeHiddenWord(){
+    newHiddenWord = Array(currentWord.length).fill('_')
+    document.getElementById('current-word').innerHTML = newHiddenWord.join(' ');
+}
+
+function doesPlayerwin(){
+    let remainingWords = newHiddenWord.filter(x => x=='_').length
+    if (remainingWords == 0 ) {
+        alert(`Congratulations ${username}, you won!`)
+        incrementScore()
+        runGame()
+    }
+}
+
 function updateHiddenWord(){
-    /***
-     * For this function I want to achieve the following goal: It goes by word by word, if it's the word the player submitted, it prints that word, 
-     * otherwise it does ' _ '. A way for it to go item by item like currentWord[0], currentWord[1] etc. A for loop may be the best way to do this.
-     */
+    let letterSuggestion = document.getElementById("user-name").value
+    let wordArray = currentWord.split('')
+
+    for (let i = 0; i < wordArray.length; i++) {
+        if (letterSuggestion === wordArray[i]) {
+            newHiddenWord[i] = letterSuggestion;
+        } 
+    }
+
+    document.getElementById('current-word').innerHTML = newHiddenWord.join(' ');
 
 }
 
@@ -137,8 +146,22 @@ function updateHangmanImage(){
     console.log(game.guesses)
     if (game.guesses == 1) {
         document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="1/6 Guesses remaining"></img>`
-    } else if (game.guesses == 6){
-        alert(`Sorry ${username}, you lost!`)
+    } 
+    else if (game.guesses == 2){
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="2/6 Guesses remaining"></img>`
+    }
+    else if (game.guesses == 3){
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="3/6 Guesses remaining"></img>`
+    }
+    else if (game.guesses == 4){
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="4/6 Guesses remaining"></img>`
+    }
+    else if (game.guesses == 5){
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="5/6 Guesses remaining"></img>`
+    }
+    else if (game.guesses == 6){
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="GAME OVER"></img>`
+        alert(`Sorry ${username}, you lost! The word was ${game.currentWord}.`)
         runGame()
     }
 }
