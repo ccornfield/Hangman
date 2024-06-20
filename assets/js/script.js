@@ -92,14 +92,14 @@ function checkLetter(){
     for (let letters of wordArray) {
         if (letterSuggestion === letters){
             console.log("This is the correct letter!")
-            ++correctWord
+            correctWord++
             updateHiddenWord()
         } else if (correctWord == 0) {
             console.log("This is the incorrect letter!")
-            ++incorrectWord
+            incorrectWord++
             if(incorrectWord == currentWord.length){
                 console.log("None of these letters are correct!")
-                ++game.guesses
+                game.guesses++
                 updateHangmanImage()
             }
         }
