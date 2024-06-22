@@ -2,7 +2,7 @@
 let username = ''
 let game = {
     dictionary: words,
-    currentWord: 'example',
+    currentWord: '',
     hiddenWord: '',
     guesses: 0,
     score: 0,
@@ -17,11 +17,17 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", function() {
             if (this.getAttribute("type") === "submit" && game["gameStart"] == 0) {
                 collectUsername();
+                if (username.length <= 0){
+                    alert("Please insert your username to continue!")
+                    return;
+               } else {
+                collectUsername();
                 alert(`Get ready to play ${username}!`);
                 console.log(`the word for this game is ${game["currentWord"]}`);
                 ++game["gameStart"];
                 changeHTMLForGameplay();
                 runGame();
+               }
             } else if (this.getAttribute("type") === "submit" && game["gameStart"] >= 1) {
                 checkLetter();
             }
@@ -93,6 +99,7 @@ function checkLetter(){
             console.log("This is the correct letter!")
             correctWord++
             updateHiddenWord()
+            console.log(correctWord)
         } else if (correctWord == 0) {
             console.log("This is the incorrect letter!")
             incorrectWord++
@@ -102,7 +109,6 @@ function checkLetter(){
                 updateHangmanImage()
             }
         }
-        doesPlayerwin()
     }
 }
 
@@ -120,12 +126,14 @@ function initializeHiddenWord(){
     document.getElementById('current-word').innerHTML = newHiddenWord.join(' ');
 }
 
-function doesPlayerwin(){
-    let remainingWords = newHiddenWord.filter(x => x=='_').length
-    if (remainingWords == 0 ) {
-        alert(`Congratulations ${username}, you won!`)
-        incrementScore()
-        runGame()
+function checkIfPlayerHasWon () {
+    let correctGuesses = newHiddenWord.filter(x => x !=='_').length
+    if (correctGuesses == currentWord.length ) {
+        setTimeout(() => {
+            alert(`Congratulations ${username}, you won!`);
+            incrementScore();
+            runGame();
+        }, 0);
     }
 }
 
@@ -141,6 +149,7 @@ function updateHiddenWord(){
 
     document.getElementById('current-word').innerHTML = newHiddenWord.join(' ');
 
+    checkIfPlayerHasWon()
 }
 
 /***
@@ -165,7 +174,7 @@ function updateHangmanImage(){
     }
     else if (game.guesses == 6){
         document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="GAME OVER"></img>`
-        alert(`Sorry ${username}, you lost! The word was ${game.currentWord}.`)
+        alert(`Sorry ${username}, you lost! The word was ${currentWord}.`)
         runGame()
     }
 }
