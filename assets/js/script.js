@@ -153,20 +153,25 @@ function updateHangmanImage(){
         document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="1/6 Guesses remaining"></img>`
     } 
     else if (game.guesses == 2){
-        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="2/6 Guesses remaining"></img>`
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/2-guesses.jpg" alt="2/6 Guesses remaining"></img>`
     }
     else if (game.guesses == 3){
-        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="3/6 Guesses remaining"></img>`
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/3-guesses.jpg" alt="3/6 Guesses remaining"></img>`
     }
     else if (game.guesses == 4){
-        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="4/6 Guesses remaining"></img>`
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/4-guesses.jpg" alt="4/6 Guesses remaining"></img>`
     }
     else if (game.guesses == 5){
-        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="5/6 Guesses remaining"></img>`
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/5-guesses.jpg" alt="5/6 Guesses remaining"></img>`
     }
     else if (game.guesses == 6){
-        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="GAME OVER"></img>`
-        alert(`Sorry ${username}, you lost! The word was ${currentWord}.`)
-        runGame()
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/6-guesses.jpg" alt="GAME OVER"></img>`
+        setTimeout(() => {
+            alert(`Sorry ${username}, you lost! The word was ${currentWord}.`)
+        }, 10);
+        setTimeout(() => {
+            runGame()
+        }, 10);
+        return
     }
 }
