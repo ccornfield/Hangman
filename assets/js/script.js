@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
                } else {
                 collectUsername();
                 alert(`Get ready to play ${username}!`);
-                console.log(`the word for this game is ${game["currentWord"]}`);
                 ++game["gameStart"];
                 changeHTMLForGameplay();
                 runGame();
@@ -45,8 +44,7 @@ function collectUsername(){
     if (userInput !== null){
         username = userInput.value;
     } else {
-        console.error("Please insert a valid username!")
-        throw `Invalid User Input ${userInput}. Aborting!`;
+        return
     }
 
     //if (userInput.value.length == 0){
@@ -72,9 +70,7 @@ function runGame(){
     newHiddenWord = []
     game.guesses = 0;
     document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/0-guesses.jpg" alt="0/6 Guesses remaining"></img>`;
-    console.log("Running the game...");
     currentWord = words[Math.floor(Math.random() * 1175)];
-    alert(currentWord);
 
     if (currentWord !== null){
         initializeHiddenWord()
@@ -96,15 +92,11 @@ function checkLetter(){
 
     for (let letters of wordArray) {
         if (letterSuggestion === letters){
-            console.log("This is the correct letter!")
             correctWord++
             updateHiddenWord()
-            console.log(correctWord)
         } else if (correctWord == 0) {
-            console.log("This is the incorrect letter!")
             incorrectWord++
             if(incorrectWord == currentWord.length){
-                console.log("None of these letters are correct!")
                 game.guesses++
                 updateHangmanImage()
             }

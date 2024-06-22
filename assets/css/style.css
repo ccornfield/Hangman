@@ -51,6 +51,10 @@ footer {
 
 /*Userpage*/
 
+#form1 {
+    text-align: center;
+} 
+
 .container{
     width: 600px;
     height: 350px;
@@ -59,7 +63,7 @@ footer {
     margin-top: 10%;
 }
 
-#user-name, #letter-input{
+#user-name{
     border: 2px solid black;
     position: relative;
     margin-left: auto;
@@ -74,10 +78,9 @@ footer {
     margin-inline: auto;
     border: 2px solid black;
     padding: 5px;
-    left: 34%;
 }
 
-#user-header, #game-screen{
+#user-header{
     text-align: center;
     position: relative;
     margin-inline: auto;
@@ -85,7 +88,7 @@ footer {
     font-size: 70px;
 }
 
-#user-info, #current-word{
+#user-info{
     text-align: center;
     position: relative;
     margin-inline: auto;
@@ -98,3 +101,18 @@ footer {
 }
 
 /*Gamepage*/
+
+#current-word{
+    text-align: center;
+    position: relative;
+    margin-inline: auto;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+#game-screen{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
