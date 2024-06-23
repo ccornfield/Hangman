@@ -11,7 +11,7 @@ body {
     background-color: #EFFFC8;
 }
 
-p, h1 {
+p, h1, h2 {
     font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 300;
@@ -58,7 +58,6 @@ footer {
 .container{
     width: 600px;
     height: 350px;
-    display: absolute;
     margin: 0 auto ;
     margin-top: 7.5%;
 }
