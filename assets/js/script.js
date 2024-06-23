@@ -26,12 +26,32 @@ document.addEventListener("DOMContentLoaded", function() {
                 ++game["gameStart"];
                 changeHTMLForGameplay();
                 runGame();
+                document.getElementById("user-name").value = "";
+                document.getElementById("user-name").focus()
                }
             } else if (this.getAttribute("type") === "submit" && game["gameStart"] >= 1) {
                 checkLetter();
             }
         });
     }
+
+    document.getElementById("user-name").addEventListener("keydown", function(event) {
+        if (event.key === "Enter" && game["gameStart"] == 0) {
+            collectUsername();
+            if (username.length <= 0){
+                alert("Please insert your username to continue!")
+                return;
+           } else {
+            collectUsername();
+            alert(`Get ready to play ${username}!`);
+            ++game["gameStart"];
+            changeHTMLForGameplay();
+            runGame();
+            document.getElementById("user-name").value = "";
+            document.getElementById("user-name").focus()
+           }
+        }
+    });
 });
 
 /***
@@ -46,10 +66,6 @@ function collectUsername(){
     } else {
         return
     }
-
-    //if (userInput.value.length == 0){
-            //alert('Please insert a username!')
-    //}
 }
 
 function changeHTMLForGameplay(){
@@ -88,7 +104,6 @@ function checkLetter(){
     let incorrectWord = 0;
     let letterSuggestion = document.getElementById("user-name").value;
     let wordArray = currentWord.split('');
-    console.log(currentWord)
 
     for (let letters of wordArray) {
         if (letterSuggestion === letters){
@@ -102,6 +117,8 @@ function checkLetter(){
             }
         }
     }
+    document.getElementById("user-name").value = "";
+    document.getElementById("user-name").focus()
 }
 
 /***
