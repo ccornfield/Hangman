@@ -42,3 +42,21 @@ My research shows that 79% of people that search for hangman on facebook while t
 Considering these parameters, while mobile will of course need to be considered and ensured that it is responsive in its design, due to the age range present a heavy focus on effective desktop design will also be a nessecity. Clear and simple controls with an uncluttered UI and a large, readable font will be essential in making the website as easy to use for older persons as possible.
 
 ### User Needs
+
+#### User Stories
+1. Be able to enter their username
+2. Capeable of suggesting letters to the submission box
+3. Booking their meals in advance to reserve a table.
+
+# Deployment #
+
+In order to deploy my website, I used github pages. In order to use this service I had to do the following:
+
+1. Go into my project repository
+2. Click on the settings icon
+3. Click on the source drop down and select the option "Deploy from branch"
+4. In the branch drop down, select the option "main", this can be found in the root folder.
+5. Select the folder dropdown a
+6. Press the save button.
+7. After reloading you should see that the site is live.
+8. Click the visit site button or use the link provided to access the site at any time.
