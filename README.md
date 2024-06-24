@@ -117,6 +117,52 @@ The header for the site is very barebones, simply displaying a logo in the form 
 
 ![The header after the game starts](assets/readme/updated_header.PNG)
 
+This is how the header looks when the user submits their username into the submission box, which then launches the game. The score box ticks up by one whenever the user correctly guesses the hangman word.
+
+### Footer
+
+![The footer present on both the username screen and game screen](assets/readme/footer.png)
+
+This footer was implemented simply to state the name of the creator of the site and the year in which it was created in the form of a mock copyright, as if to suggest this project was a professional product with legal protections.
+
+### Game Screen
+
+![The screen in which the hangman game takes place.](assets/readme/game_screen.png)
+
+The game screen is where the hangman game operates, with the majority of the js script present targeting id's only present on this screen. This is not a seperate html page and is instead the same page that the username page takes place on. JS is used so that once the username is submitted, the html on the page changes. The text input and submit box remain the same however the above paragraph and header instead change to an image and a div tag as to facilitate the games mechanics which will be explained going forwards.
+
+### Game Interface
+
+![How the user is able to play the game of hangman](assets/readme/game_interface.png)
+
+![What happens when the player makes a correct guess](assets/readme/correct_guess.png)
+
+![What happens when the player makes a incorrect guess](assets/readme/incorrect_guess.png)
+
+The white box in this image is the submission box, here players insert a lower case letter into the console and then click on the submit button which then triggers a function that uses the submitted letter as a variable to compare to every letter in the word being used for the current game of hangman. If any of them are right the underscore div will update with the letter in the correct place to show a correct guess. If all the letters in the current word do not match the suggested letter, then a function will trigger to update the hangman image and add 1 to a tally of guesses. After 6 incorrect guesses, the hangman completes and the player loses the game. After each correct guess, a function runs to detect if the player has won the game or not, upon a victory the player recieves an alert congratulating them while also incrementing the score by one via a function. The player also recieves an alert upon a loss telling them they ran out of guesses and also revealing what the word was.
+
+# Testing #
+
+Testing for this project was very extensive and varied compared to my previous milestone effort. Unlike HTML and CSS where issues can typically be targeted quicky and resolved with the change of a line of text with procedures for certain effects like keeping a footer at the bottom of the page widely documented and easy to check. Javascript differs in that while the use of individual methods can be understood and so can the general construction of objects and functions, due to the malleability of these elements, making sure they function as intended is a much more involved and difficult process. The process for testing both pages with be detailed below.
+
+### Username Page Testing
+
+This was the easier page to test of the two due to the it's simpler construction without as many javascript elements to troubleshoot. However there was still testing to be done to ensure it worked accordingly. First of all was the CSS of the header/footer. They had a width and display so that it went wider than the viewport of every device it was tested on, resulting in a scroll bar along the bottom of the page. This was resolved by attacking the 100% width to the body of the page and changing the position of the footer from an absolute to a fixed position, then giving it a seperate width. This ensured all elements were snugly fit inside the browser viewport.
+
+For testing javascript, the main concern was making sure that a user couldn't just skip the process of having a username as this would be essential for later functions such as win and loss alerts. This was resolved by having a check for if the value of the username input box was less than 1. This resulted in the the desired effect. Another issue with the username page was that for a time it was unable to detect the value of the text input box by not being able to use the .value method as a function. By removing the variable from the game object and making it it's own seperate variable, it was able to find the data it needed to complete the collectUsername function.
+
+### Game Page Testing
+
+
+
+### W3C Validator
+
+
+
+### jshint Validator
+
+
+
 # Deployment #
 
 In order to deploy my website, I used github pages. In order to use this service I had to do the following:
@@ -130,6 +176,10 @@ In order to deploy my website, I used github pages. In order to use this service
 7. After reloading you should see that the site is live.
 8. Click the visit site button or use the link provided to access the site at any time.
 
+# Languages #
+
+For this website I used HTML, CSS and Javascript.
+
 # Media Queries #
 
 Media Queries were used exclusively in the role of increasing the responsiveness of web pages by shrinking the font size on the h2 elements and the size of the hangman image depending on the size of the screen.
@@ -141,6 +191,10 @@ VS Code was used to create the website. It was the tool for typing out HTML and 
 Balsamiq was used to create the wireframes saw earlier in this readme.
 
 The microsoft snipping tool was used to take the relevant screenshots.
+
+# Code #
+
+
 
 # Credits #
 
