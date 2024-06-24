@@ -30,9 +30,9 @@ Like in my previous project I was not originally going into this with a market t
 
 My research shows that 79% of people that search for hangman on facebook while the most popular age group featured on the website were those aged 65+ which accounted for 29% of all searches showing that the main market for hangman is older women, possibly retired.
 
-![Using AdTargeting, these were the top results in google keywords](assets/readme/hangman_google_marketing.PNG)
+![Using AdTargeting, these were the top results in google keywords](assets/readme/hangman_google_marketing.png)
 
-![Using AdTargeting, this was the only result in facebook keywords](assets/readme/hangman_facebook_marketing.PNG)
+![Using AdTargeting, this was the only result in facebook keywords](assets/readme/hangman_facebook_marketing.png)
 
 ### Seafood Keyword Search
 
@@ -115,7 +115,7 @@ The header for the site is very barebones, simply displaying a logo in the form 
 
 ### Updated Header
 
-![The header after the game starts](assets/readme/updated_header.PNG)
+![The header after the game starts](assets/readme/updated_header.png)
 
 This is how the header looks when the user submits their username into the submission box, which then launches the game. The score box ticks up by one whenever the user correctly guesses the hangman word.
 
