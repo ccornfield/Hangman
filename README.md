@@ -46,7 +46,60 @@ Considering these parameters, while mobile will of course need to be considered 
 #### User Stories
 1. Be able to enter their username
 2. Capeable of suggesting letters to the submission box
-3. Booking their meals in advance to reserve a table.
+3. Easily understanding when they lose and win
+
+### Site Objectives
+
+* To make sure that site elements are easy to understand.
+* Ensure that the web page is responsive and easy to interact with.
+* To display a new image for every incorrect guess the player makes.
+* To update HTML elements for every correct guess the player makes.
+* Clearly denote where plays can submit letters and usernames.
+* Allow the user to suggest a unique username for win and loss messages.
+* Possess a color palette that is easy on the eyes.
+
+### Research
+
+While working on this site I did not do much research, this was because the design of my site was very laser focused into being a simple hangman game. Therefore in terms of site research, I refered to the portfolios of other code institute students as can be seen below.
+
+[Yagavi1994](https://github.com/Yagavi1994/Wordle)
+[kateuj](https://github.com/kateuj/coffee_cram)
+
+I took notice of their design and incorporated elements of them into my own work.
+
+### Wireframe
+
+When putting together my website, my first port of call was to use balsamiq to create the wireframes that would allow me to plan out the look of my website and the respective elements that I wanted to be included. These designs were not final and they do look markedly different to the final project. This was due to worries about time constraints from struggles during the study period of the project. By simplifying certain elements and just keeping the wholly nessecary design elements I was able to ensure the project was done in a timely nature.
+
+![The username submission page](assets/readme/name_input.png)
+
+![The game screen where users would submit letters for the hangman game](assets/readme/hangman_game.png)
+
+![The game screen as it was intended to look on phones](assets/readme/hangman_game_mobile.png)
+
+![The game's win screen](assets/readme/win_screen.png)
+
+![The game's loss screen](assets/readme/loss_screen.png)
+
+### Color Scheme
+
+There wasn't a target market in mind at the time of the sites creation and since the site would only have a few distinct elements to ensure stood out, I used a palette with more muted colors while reserving the stronger colors for the more important elements that I wanted to ensure the player saw e.g. the header where the score would go and the hover highlight on the submit button to show they were about to click it. 
+
+Yellow Green was not used on the site due to it's high saturation that would have clashed with the weaker colors on the sight and how it would blend into the background if used for the header and footer elements.
+
+![The Websites color scheme](assets/readme/palette.png)
+
+### Typography
+
+For this project, due to it being a word game, I wanted to select a font that had very little embellishment and could be read clearly on both small phone screens and large desktop monitors. To this end I chose to use the Inter font due to it's clean appearance and ease of readability, as it was clearly readable even when the font was shrunk down to a smaller size for the purposes of reponsive design.
+
+![The font used for the entireity of the site](assets/readme/chosen_font.png)
+
+# Features #
+
+### General
+
+I have in large part been able to successfully make the site responsive by ensuring the text and images are at the appropriate time according to the size of the screen using google dev tools. However, curiously, when using the adjustable screen tools the site behaves as intended however when using the phone templates, the footer breaks by shrinking and lifting from the bottom of the phone despite CSS attempting to do otherwise.
 
 # Deployment #
 
@@ -60,3 +113,21 @@ In order to deploy my website, I used github pages. In order to use this service
 6. Press the save button.
 7. After reloading you should see that the site is live.
 8. Click the visit site button or use the link provided to access the site at any time.
+
+# Media Queries #
+
+Media Queries were used exclusively in the role of increasing the responsiveness of web pages by shrinking the font size on the h2 elements and the size of the hangman image depending on the size of the screen.
+
+# Software #
+
+VS Code was used to create the website. It was the tool for typing out HTML and CSS code along with pushing site updates to the Github repository. Github and by extension Git was used to edit the website once it had been pushed to the repository while also being used to host the website and make it live.
+
+Balsamiq was used to create the wireframes saw earlier in this readme.
+
+The microsoft snipping tool was used to take the relevant screenshots.
+
+# Credits #
+
+Code Institute for the opportunity to learn and hone the craft of developing websites.
+
+My loving and supportive family for supporting me in this endeavor.

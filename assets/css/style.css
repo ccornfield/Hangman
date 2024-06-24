@@ -9,6 +9,8 @@
 
 body {
     background-color: #EFFFC8;
+    margin: 0px;
+    width:100%
 }
 
 p, h1, h2 {
@@ -24,7 +26,6 @@ header {
     background-color: #5f9ea0;
     padding: 10px;
     margin-inline: 0 auto;
-    width:100%;
 }
 
 #score{
@@ -39,10 +40,9 @@ footer {
     background-color: #5f9ea0;
     margin-top: 20px;
     padding: 10px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    left: 0;
-    width:100%;
+    width: 100%;
     font-size: 14px;
 }
 
@@ -126,5 +126,11 @@ footer {
 @media (max-width: 650px){
     #user-header{
         font-size: 2.25em;
+    }
+}
+
+@media (max-width: 420px){
+    #submit-button{
+        margin: 7px;
     }
 }
