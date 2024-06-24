@@ -99,7 +99,23 @@ For this project, due to it being a word game, I wanted to select a font that ha
 
 ### General
 
-I have in large part been able to successfully make the site responsive by ensuring the text and images are at the appropriate time according to the size of the screen using google dev tools. However, curiously, when using the adjustable screen tools the site behaves as intended however when using the phone templates, the footer breaks by shrinking and lifting from the bottom of the phone despite CSS attempting to do otherwise.
+I have in large part been able to successfully make the site responsive by ensuring the text and images are at the appropriate time according to the size of the screen using google dev tools. 
+
+### Username Screen
+
+![The screen where users can submit their username for unique Win/Loss alerts](assets/readme/username_screen.png)
+
+The above screen was created because it was suggested to me by my tutor that I should have an interactive element on the site that was not related to the game. Therefore I decided that it would be wise to allow the user to submit their own usernames so they could get personalized update on whether or not they won the game or did not guess the word in time.
+
+### Header
+
+![The header before the game starts](assets/readme/header.png)
+
+The header for the site is very barebones, simply displaying a logo in the form of the name of the project. This was done in order to keep the CSS as simple and as functional as possible as too many elements may have disrupted the readability of other elements that require precise js to function.
+
+### Updated Header
+
+![The header after the game starts](assets/readme/updated_header.PNG)
 
 # Deployment #
 
