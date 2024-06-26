@@ -179,9 +179,9 @@ Same case as with my HTML validator, I was not expecting any major errors in my 
 
 ![jshint warnings](assets/readme/jshint_warnings.png)
 
-![jshint undefined variables](assets/readme/jshint_warnings.png)
+![jshint undefined variables](assets/readme/jshint_undefined_variables.png)
 
-jshint is a validator designed for testing best practises in developing applications using javascripy similar to that used by the world wide web consortium. Using it I was able to detect errors in my code that arn't a case of clarity but a case of not being professional. As can be seen above, where code was not borrowed and sited from other projects done with code institute, many of the issues present were things like improper notation for variable locations, a lack of semicolons and not declaring vital variables to the program.
+jshint is a validator designed for testing best practises in developing applications using javascripy similar to that used by the world wide web consortium. Using it I was able to detect errors in my code that arn't a case of clarity but a case of not being professional. As can be seen above, where code was not borrowed and sited from other projects done with code institute, many of the issues present were things like improper notation for variable locations, a lack of semicolons and not declaring vital variables to the program. It had warned me about using functions in loops and had also showed concern that I had not cited words as a variable however the code involving the function was sourced from the code institute project Love Maths and the word variable was cited in a seperate file called dictionary.js so those warnings were ignored.
 
 # Deployment #
 
