@@ -9,6 +9,7 @@ let game = {
     gameStart: 0
 }
 let newHiddenWord = []
+let gameScreenEle = ""
 
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
@@ -119,6 +120,7 @@ function checkLetter(){
     }
     document.getElementById("user-name").value = "";
     document.getElementById("user-name").focus()
+    console.log(currentWord)
 }
 
 /***
@@ -135,8 +137,8 @@ function initializeHiddenWord(){
     document.getElementById('current-word').innerHTML = newHiddenWord.join(' ');
 }
 
-function checkIfPlayerHasWon () {
-    let correctGuesses = newHiddenWord.filter(x => x !=='_').length
+function checkIfPlayerHasWon() {
+    let correctGuesses = newHiddenWord.filter(x => x !=='_').length;
     if (correctGuesses == currentWord.length ) {
         setTimeout(() => {
             alert(`Congratulations ${username}, you won!`);
@@ -144,6 +146,17 @@ function checkIfPlayerHasWon () {
             runGame();
         }, 0);
     }
+}
+function checkIfPlayerHasLost() {
+    const img = document.getElementById("game-screen");
+    const failureState = img.getAttribute("src");
+    if (failureState == "assets/images/6-guesses.jpg") {
+        setTimeout(() => {
+            runGame();
+            alert(`Sorry ${username}, you lost! The word was ${currentWord}.`);
+        }, 60);
+    }
+    console.log(failureState)
 }
 
 function updateHiddenWord(){
@@ -167,7 +180,7 @@ function updateHiddenWord(){
 function updateHangmanImage(){
     console.log(game.guesses)
     if (game.guesses == 1) {
-        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="1/6 Guesses remaining"></img>`
+        document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/1-guesses.jpg" alt="2/6 Guesses remaining"></img>`
     } 
     else if (game.guesses == 2){
         document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/2-guesses.jpg" alt="2/6 Guesses remaining"></img>`
@@ -183,12 +196,6 @@ function updateHangmanImage(){
     }
     else if (game.guesses == 6){
         document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/6-guesses.jpg" alt="GAME OVER"></img>`
-        setTimeout(() => {
-            alert(`Sorry ${username}, you lost! The word was ${currentWord}.`)
-        }, 10);
-        setTimeout(() => {
-            runGame()
-        }, 10);
-        return
     }
+    checkIfPlayerHasLost()
 }

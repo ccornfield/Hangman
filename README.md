@@ -194,7 +194,7 @@ The microsoft snipping tool was used to take the relevant screenshots.
 
 # Code #
 
-
+https://stackoverflow.com/questions/18149043/how-to-check-img-src-is-true-using-javascript
 
 # Credits #
 
