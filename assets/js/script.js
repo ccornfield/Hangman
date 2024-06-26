@@ -90,15 +90,19 @@ function checkLetter(){
     let letterSuggestion = document.getElementById("user-name").value;
     let wordArray = currentWord.split('');
 
-    for (let letters of wordArray) {
-        if (letterSuggestion === letters){
-            correctWord++;
-            updateHiddenWord();
-        } else if (correctWord == 0) {
-            incorrectWord++;
-            if(incorrectWord == currentWord.length){
-                game.guesses++;
-                updateHangmanImage();
+    if (letterSuggestion <= 0) {
+        alert("Please suggest a word to the given box!")
+    } else {
+        for (let letters of wordArray) {
+            if (letterSuggestion === letters){
+                correctWord++;
+                updateHiddenWord();
+            } else if (correctWord == 0) {
+                incorrectWord++;
+                if(incorrectWord == currentWord.length){
+                    game.guesses++;
+                    updateHangmanImage();
+                }
             }
         }
     }
