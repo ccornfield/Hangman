@@ -153,11 +153,27 @@ For testing javascript, the main concern was making sure that a user couldn't ju
 
 ### Game Page Testing
 
+The heavy majority of the testing for this project took place in the game page, this is the page that is created upon the user submitting their username by triggering the runGame and changeHTMLForGameplay functions. The first thing that needed testing was making sure that the current word could actually be searched through. I initially tried to do this by using the split method however at first this did not work as it was not considered a valid function, however this was solved by using a more specific way to call the variable I needed which resulted in it working. 
+
+After this, it was important to make sure that the dotted lines below the hangman image worked as intended, which at first was not the case. The variable involved with remembering the correct guesses of the player was not being stored between calls of the function which lead to each submitted word being added to the dotted line but removed every other guess the player had made, making a win state impossible. This was resolved by making the dotted line automating with the fill method, making it so the string was malleable and able to store the correct guesses easier than if a new static string had to be made each pass of the function.
+
+One of the scariest hurdles that was faced during the testing process of the game page was an issue where upon the player losing or winning the game, certain elements would either not load or disappear completly. These were bad issues because they impeded the polish and playability of the game, making the player feel like that had either cheated the game or lost unfairly, not realizing their loss state. For repairing the issue with the win state not working, the final letter suggested would not be submitted to the dotted line, resulting in it appearing incomplete. This was resolved by timeout function to delay the code so that the original function could complete before any more code could run. A similar solution was used to fix the loss function however not only was the delay longer (60 milliseconds) and the order of code reversed so that runGame triggered before the alert, the method of detecting the game loss was moved from being inside of the updateHangmanImage as a natural part of it's code but instead to a seperate, checkIfPlayerHasLost, function. This allowed for the image to render as the runGame trigger is called but interrupted by the alert so that the code inside of runGame does not actually trigger and wipe the image back to it's default blank state.
+
 
 
 ### W3C Validator
 
+![The validator results for the HTML of my Userpage](assets/readme/w3c_html_validator.png)
 
+My HTML was very simple and as such I was not expecting to get many, if any, standout errors in the code since it was intended to hold the nessecary ID's for the hangman game to function. As such the only changed I had to make to my userpage was to change a h1 into a h2 as to ensure a proper hierarchy of headers that the validator would approve of.
+
+![The validator results for the HTML of my Game Page](assets/readme/w3c_html_game_validator.png)
+
+For the sake of clarity, I edited the userpage with the html code added to it by the javascript included within and ran that through the validator. As expected, I recieved no concrete errors in the code. Just the warning that it would be for the best changing the section tag to a div tag. However considering that this was not considered an error or warning on the userpage, I have decided to live with it for now. However this may change going forwards.
+
+![The validator results for the CSS of my Website](assets/readme/w3c_css_validator.png)
+
+Same case as with my HTML validator, I was not expecting any major errors in my code. The only issue was that I had incorrectly given display a fake value in absolute. Therefore the best way to fix it was to simply remove the offending code.
 
 ### jshint Validator
 

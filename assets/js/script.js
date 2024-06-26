@@ -36,23 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    document.getElementById("user-name").addEventListener("keydown", function(event) {
-        if (event.key === "Enter" && game["gameStart"] == 0) {
-            collectUsername();
-            if (username.length <= 0){
-                alert("Please insert your username to continue!")
-                return;
-           } else {
-            collectUsername();
-            alert(`Get ready to play ${username}!`);
-            ++game["gameStart"];
-            changeHTMLForGameplay();
-            runGame();
-            document.getElementById("user-name").value = "";
-            document.getElementById("user-name").focus()
-           }
-        }
-    });
+
 });
 
 /***
