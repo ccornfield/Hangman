@@ -120,7 +120,6 @@ function checkLetter(){
     }
     document.getElementById("user-name").value = "";
     document.getElementById("user-name").focus()
-    console.log(currentWord)
 }
 
 /***
@@ -156,7 +155,6 @@ function checkIfPlayerHasLost() {
             alert(`Sorry ${username}, you lost! The word was ${currentWord}.`);
         }, 60);
     }
-    console.log(failureState)
 }
 
 function updateHiddenWord(){
