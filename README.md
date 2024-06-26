@@ -177,7 +177,9 @@ Same case as with my HTML validator, I was not expecting any major errors in my 
 
 ### jshint Validator
 
+![jshint warnings](assets/readme/jshint_warnings.png)
 
+![jshint undefined variables](assets/readme/jshint_warnings.png)
 
 # Deployment #
 
