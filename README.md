@@ -1,6 +1,6 @@
 # Hangman - A portfolio project.
 
-Welcome to my code institute milestone project. This is my second of such projects. For this milestone project, I was tasked with creating a webpage that was not only interactive but also offered some form of service, most often in the form of a game. In order to meet this goal, I decided to create a simple game of hangman featuring a robot rather than the typical figure. I chose to do this due to its simplicity and the potential for imagery unique to my site.
+Welcome to my Code Institute milestone project. This is my second of such projects. For this milestone project, I was tasked with creating a webpage that was not only interactive but also offered some form of service, most often in the form of a game. In order to meet this goal, I decided to create a simple game of hangman featuring a robot rather than the typical figure. I chose to do this due to its simplicity and the potential for imagery unique to my site.
 
 ![My site in a range of different responsive layouts](assets/readme/responsive.png)
 
