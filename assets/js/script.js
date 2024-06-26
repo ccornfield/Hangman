@@ -137,7 +137,7 @@ function checkIfPlayerHasLost() {
         setTimeout(() => {
             alert(`Sorry ${username}, you lost! The correct word was ${currentWord}`);
             runGame();
-        }, 60);
+        }, 500);
     }
 }
 
