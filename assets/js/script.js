@@ -1,7 +1,6 @@
 let username = '';
 let game = {
     dictionary: words,
-    currentWord: '',
     hiddenWord: '',
     guesses: 0,
     score: 0,
@@ -9,6 +8,8 @@ let game = {
 };
 let newHiddenWord = [];
 let gameScreenEle = "";
+let currentWordEle = "";
+let currentWord = "";
 
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
@@ -134,7 +135,7 @@ function checkIfPlayerHasLost() {
     const failureState = img.getAttribute("src");
     if (failureState == "assets/images/6-guesses.jpg") {
         setTimeout(() => {
-            alert(`Congratulations ${username}, you won!`)
+            alert(`Sorry ${username}, you lost! The correct word was ${currentWord}`);
             runGame();
         }, 60);
     }
