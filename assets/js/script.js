@@ -134,9 +134,9 @@ function checkIfPlayerHasLost() {
     const failureState = img.getAttribute("src");
     if (failureState == "assets/images/6-guesses.jpg") {
         setTimeout(() => {
+            alert(`Congratulations ${username}, you won!`)
             runGame();
-            alert(`Sorry ${username}, you lost! The word was ${currentWord}.`);
-        }, 0);
+        }, 60);
     }
 }
 
