@@ -116,6 +116,13 @@ footer {
     margin-top: 10%;
 }
 
+/*404*/
+
+#error-404{
+    text-align: center;
+    position: relative;
+}
+
 /* Media Queries */
 @media (max-width: 800px){
     #game-screen{
