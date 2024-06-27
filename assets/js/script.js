@@ -72,7 +72,6 @@ function runGame(){
     game.guesses = 0;
     document.getElementById("game-screen").outerHTML = `<img id="game-screen" src="assets/images/0-guesses.jpg" alt="0/6 Guesses remaining"></img>`;
     currentWord = words[Math.floor(Math.random() * 1175)];
-    console.log(currentWord)
 
     if (currentWord !== null){
         initializeHiddenWord();
