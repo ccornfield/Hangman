@@ -34,7 +34,7 @@ My research shows that 79% of people that search for hangman on facebook while t
 
 ![Using AdTargeting, this was the only result in facebook keywords](assets/readme/hangman_facebook_marketing.png)
 
-### Seafood Keyword Search
+### Hangman Keyword Search
 
 * 29% Female demographic
 * 65+ age range
