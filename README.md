@@ -214,7 +214,9 @@ The microsoft snipping tool was used to take the relevant screenshots.
 
 # Code #
 
-https://stackoverflow.com/questions/18149043/how-to-check-img-src-is-true-using-javascript
+For my hangman I took advice from [this forum post](https://stackoverflow.com/questions/18149043/how-to-check-img-src-is-true-using-javascript) in order to design a better way to check the loss state in my website.
+
+For the favicon I used [a generator](https://favicon.io/) in order to generate the files and code that was used to apply it to my entire site.
 
 # Credits #
 
