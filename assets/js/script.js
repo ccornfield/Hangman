@@ -131,7 +131,7 @@ function checkIfPlayerHasWon() {
             alert(`Congratulations ${username}, you won!`);
             incrementScore();
             runGame();
-        }, 0);
+        }, 500);
     }
 }
 function checkIfPlayerHasLost() {
